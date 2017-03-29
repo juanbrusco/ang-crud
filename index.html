@@ -1,0 +1,333 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>FarmaFoto</title>
+
+        <!--<link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+		<link rel="stylesheet" type="text/css" href="components/angular-growl-v2/build/angular-growl.min.css">
+		<link rel="stylesheet" type="text/css" href="components/ng-dialog/css/ngDialog.min.css">
+		<link rel="stylesheet" type="text/css" href="components/ng-dialog/css/ngDialog-theme-default.min.css">
+		<link rel="stylesheet" type="text/css" href="components/ng-table-bundle/ng-table.min.css">
+		<link rel="stylesheet" type="text/css" href="components/angular-dialog-service/dist/dialogs.min.css">
+		<link rel="stylesheet" type="text/css" href="components/angularMultipleSelect/build/multiple-select.min.css">
+		<link rel="stylesheet" type="text/css" href="components/angucomplete-alt/angucomplete-alt.css">
+		<link rel="stylesheet" type="text/css" href="components/angularjs-datepicker/dist/angular-datepicker.min.css">
+		<link rel='stylesheet' type="text/css" href="components/angular-loading-bar/build/loading-bar.min.css" media="all" />-->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/sb-admin.css" rel="stylesheet">
+
+
+        <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+		<script src="https://code.angularjs.org/1.4.4/angular-route.min.js"></script>
+        <script src="lib/jquery/jquery.js"></script>
+        <script src="lib/tether/tether.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/controllers/pharmaciesCtrl.js"></script>
+        <script src="js/controllers/AddController.js"></script>
+        <script src="js/controllers/EditController.js"></script>
+    </head>
+	
+	<body ng-app="myApp">
+
+    <nav id="mainNav" class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#/">FarmaFoto</a>
+        <div class="collapse navbar-collapse" id="navbarExample">
+            <ul class="sidebar-nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><i class="fa fa-fw fa-users"></i> Usuarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#/pharmacies/"><i class="fa fa-fw fa-plus-square"></i> Farmacias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-fw fa-list"></i> Pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-fw fa-shopping-cart"></i> Catálogo</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Cerrar sesión</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+          <div ng-view>
+		  </div>
+    </div>
+    </body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FarmaFoto</title>
+
+    &lt;!&ndash; Bootstrap Core CSS &ndash;&gt;
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    &lt;!&ndash; Custom Fonts &ndash;&gt;
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    &lt;!&ndash; Custom CSS &ndash;&gt;
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    &lt;!&ndash; Morris Charts CSS &ndash;&gt;
+    &lt;!&ndash;     <link href="css/plugins/morris.css" rel="stylesheet"> &ndash;&gt;
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.4/angular-route.min.js"></script>
+
+    <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.2/angularfire.min.js"></script>
+
+</head>
+
+<body ng-app="myApp">
+
+&lt;!&ndash; Navigation &ndash;&gt;
+<nav id="mainNav" class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">FarmaFoto</a>
+    <div class="collapse navbar-collapse" id="navbarExample">
+        <ul class="sidebar-nav navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#"><i class="fa fa-fw fa-users"></i> Usuarios</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-fw fa-plus-square"></i> Farmacias</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-fw fa-list"></i> Pedidos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-fw fa-shopping-cart"></i> Catálogo</a>
+            </li>
+            &lt;!&ndash;<li class="nav-item">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExample"><i class="fa fa-fw fa-sitemap"></i> Menu Levels</a>
+                <ul class="sidebar-second-level collapse" id="collapseExample">
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a href="#">Second Level Item</a>
+                    </li>
+                    <li>
+                        <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExample2">Third Level</a>
+                        <ul class="sidebar-third-level collapse" id="collapseExample2">
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Third Level Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>&ndash;&gt;
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            &lt;!&ndash;<li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" href="#" id="messagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-envelope"></i> <span class="hidden-lg-up">Messages <span class="badge badge-pill badge-primary">12 New</span></span>
+                    <span class="new-indicator text-primary hidden-md-down"><i class="fa fa-fw fa-circle"></i><span class="number">12</span></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header">New Messages:</h6>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>David Miller</strong> <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>Jane Smith</strong> <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <strong>John Doe</strong> <span class="small float-right text-muted">11:21 AM</span>
+                        <div class="dropdown-message small">I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.</div>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        View All Messages
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle mr-lg-2" href="#" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-fw fa-bell"></i> <span class="hidden-lg-up">Alerts <span class="badge badge-pill badge-warning">6 New</span></span>
+                    <span class="new-indicator text-warning hidden-md-down"><i class="fa fa-fw fa-circle"></i><span class="number">6</span></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline my-2 my-lg-0 mr-lg-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                        <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                    </div>
+                </form>
+            </li>&ndash;&gt;
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa fa-fw fa-sign-out"></i> Cerrar sesión</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="container-fluid">
+
+
+
+    &lt;!&ndash;<ol class="breadcrumb my-3">
+        <li class="breadcrumb-item"><a href="#">Administración</a></li>
+        <li class="breadcrumb-item active">Farmacia</li>
+    </ol>&ndash;&gt;
+
+    <div class="row p-2">
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card card-inverse card-primary o-hidden h-100">
+                <div class="card-block">
+                    <div class="card-block-icon">
+                        <i class="fa fa-fw fa-users"></i>
+                    </div>
+                    <div class="mr-5">
+                        Usuarios
+                    </div>
+                </div>
+                <a href="#" class="card-footer clearfix small z-1">
+                    <span class="float-left">Lista</span>
+                    <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card card-inverse card-danger o-hidden h-100">
+                <div class="card-block">
+                    <div class="card-block-icon">
+                        <i class="fa fa-fw fa-plus-square"></i>
+                    </div>
+                    <div class="mr-5">
+                        Farmacias
+                    </div>
+                </div>
+                <a href="#/pharmacies/" class="card-footer clearfix small z-1">
+                    <span class="float-left">Lista</span>
+                    <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card card-inverse card-success o-hidden h-100">
+                <div class="card-block">
+                    <div class="card-block-icon">
+                        <i class="fa fa-fw fa-list"></i>
+                    </div>
+                    <div class="mr-5">
+                        Pedidos
+                    </div>
+                </div>
+                <a href="#" class="card-footer clearfix small z-1">
+                    <span class="float-left">Lista</span>
+                    <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-3">
+            <div class="card card-inverse card-warning o-hidden h-100">
+                <div class="card-block">
+                    <div class="card-block-icon">
+                        <i class="fa fa-fw fa-shopping-cart"></i>
+                    </div>
+                    <div class="mr-5">
+                        Catálogo
+                    </div>
+                </div>
+                <a href="#" class="card-footer clearfix small z-1">
+                    <span class="float-left">Lista</span>
+                    <span class="float-right"><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    &lt;!&ndash; Card Columns
+    <div class="card-columns">
+        <div class="card">
+            <img class="card-img-top img-fluid w-100" src="http://placehold.it/350x150" alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>&ndash;&gt;
+
+</div>
+
+&lt;!&ndash; jQuery Version 3.1.1 &ndash;&gt;
+<script src="lib/jquery/jquery.js"></script>
+
+&lt;!&ndash; Tether &ndash;&gt;
+<script src="lib/tether/tether.min.js"></script>
+
+&lt;!&ndash; Bootstrap Core JavaScript &ndash;&gt;
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+
+&lt;!&ndash; Chart.js
+<script src="lib/chart.js/Chart.min.js"></script>
+&ndash;&gt;
+
+&lt;!&ndash; SB Admin JavaScript
+<script src="js/sb-admin.min.js"></script>
+&ndash;&gt;
+</body>
+
+</html>-->

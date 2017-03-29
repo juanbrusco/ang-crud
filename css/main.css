@@ -1,0 +1,22 @@
+body {
+  transition: all 0.3s ease 0s;
+}
+
+.blue-background {
+  background: #30426a;
+}
+
+.login-title {
+  margin-top: 100px;
+  text-align: center;
+  color: white;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #738bc0;
+}
+
+#loading-bar .bar {
+  position: relative;
+}
