@@ -3,6 +3,8 @@ app.controller('pharmaciesCtrl', ['$scope','$rootScope', '$firebaseArray', '$loc
 
         $rootScope.mainTitle = "Farmacias";
 
+        $scope.editing = false;
+
         var pharmacies = new Firebase(FBURL + "/data/pharmacies");
         $scope.pharmacies = $firebaseArray(pharmacies);
 
@@ -13,9 +15,19 @@ app.controller('pharmaciesCtrl', ['$scope','$rootScope', '$firebaseArray', '$loc
             pharmacy.$remove();
         };
 
+
+    }]);
+
+app.controller('pharmacyCtrl', ['$scope','$rootScope', '$firebaseArray', '$location', '$firebaseObject', 'FBURL', '$routeParams',
+    function ($scope, $rootScope, $firebaseArray, $location, $firebaseObject, FBURL, $routeParams) {
+
+        $rootScope.mainTitle = "Agregar Farmacia";
+
+        $scope.editing = false;
+
         $scope.addPharmacy = function () {
-            var ref = new Firebase(FBURL + "/data/pharmacies");
-            var pharmacy = $firebaseArray(ref);
+            var refAdd = new Firebase(FBURL + "/data/pharmacies");
+            var pharmacy = $firebaseArray(refAdd);
             pharmacy.$add({
                 addres: $scope.pharmacy.address,
                 email: $scope.pharmacy.email,
@@ -27,4 +39,34 @@ app.controller('pharmaciesCtrl', ['$scope','$rootScope', '$firebaseArray', '$loc
         };
     }]);
 
- 
+app.controller('pharmacyEditCtrl', ['$scope','$rootScope', '$firebaseArray', '$location', '$firebaseObject', 'FBURL', '$routeParams',
+    function ($scope, $rootScope, $firebaseArray, $location, $firebaseObject, FBURL, $routeParams) {
+
+        $rootScope.mainTitle = "Editar Farmacia";
+
+        $scope.editing = true;
+
+        $scope.submitPharmacy = function(){
+            if($scope.condition1){
+                // call the function 1
+                action1();
+            }else{
+                // call the function 2
+                action2();
+            }
+        }
+        
+        var refEdit = new Firebase(FBURL + "/data/pharmacies/" + $routeParams.id);
+        $scope.pharmacy = $firebaseObject(refEdit);
+
+
+        $scope.editPharmacy = function() {
+            $scope.pharmacy.$save({
+                name: $scope.pharmacy.name
+            });
+            $scope.pharmacy = {};
+            $location.path('pharmacies');
+
+        };
+    }]);
+

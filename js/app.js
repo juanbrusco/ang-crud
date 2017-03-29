@@ -11,12 +11,12 @@ app.config(function ($routeProvider) {
             templateUrl: 'views/pharmacies.html'
         })
         .when('/pharmacy', {
-            controller: 'pharmaciesCtrl',
+            controller: 'pharmacyCtrl',
             templateUrl: 'views/pharmacy.html'
         })
-        .when('/edit/:id', {
-            controller: 'EditController',
-            templateUrl: 'views/edit.html'
+        .when('/pharmacy/:id', {
+            controller: 'pharmacyEditCtrl',
+            templateUrl: 'views/pharmacy.html'
 
         })
         .otherwise({
