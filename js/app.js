@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute', 'firebase']);
+var app = angular.module('myApp', ['ngRoute', 'firebase','ngTable']);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -16,7 +16,33 @@ app.config(function ($routeProvider) {
         })
         .when('/pharmacy/:id', {
             controller: 'pharmacyEditCtrl',
-            templateUrl: 'views/pharmacy.html'
+            templateUrl: 'views/pharmacyEdit.html'
+
+        })
+        .when('/catalog', {
+            controller: 'catalogCtrl',
+            templateUrl: 'views/catalog.html'
+        })
+        .when('/item', {
+            controller: 'itemCatalogCtrl',
+            templateUrl: 'views/itemCatalog.html'
+        })
+        .when('/item/:id', {
+            controller: 'itemCatalogEditCtrl',
+            templateUrl: 'views/itemCatalogEdit.html'
+
+        })
+        .when('/orders', {
+            controller: 'ordersCtrl',
+            templateUrl: 'views/orders.html'
+        })
+        .when('/order', {
+            controller: 'orderCtrl',
+            templateUrl: 'views/order.html'
+        })
+        .when('/order/:id', {
+            controller: 'orderEditCtrl',
+            templateUrl: 'views/orderEdit.html'
 
         })
         .otherwise({

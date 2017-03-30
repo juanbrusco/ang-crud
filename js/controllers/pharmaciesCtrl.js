@@ -45,16 +45,6 @@ app.controller('pharmacyEditCtrl', ['$scope','$rootScope', '$firebaseArray', '$l
         $rootScope.mainTitle = "Editar Farmacia";
 
         $scope.editing = true;
-
-        $scope.submitPharmacy = function(){
-            if($scope.condition1){
-                // call the function 1
-                action1();
-            }else{
-                // call the function 2
-                action2();
-            }
-        }
         
         var refEdit = new Firebase(FBURL + "/data/pharmacies/" + $routeParams.id);
         $scope.pharmacy = $firebaseObject(refEdit);

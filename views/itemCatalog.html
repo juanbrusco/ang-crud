@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Agregar nuevo item</div>
+            <div class="panel-body">
+                <form class="form-horizontal" name="itemCatalogForm" ng-submit="addItem()">
+                    <div class="form-group">
+                        <label for="description" class="col-sm-2 control-label">Descripción:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="description"
+                                   ng-model="item.description" placeholder="Descripción" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price" class="col-sm-2 control-label">Precio:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="price"
+                                   ng-model="item.price" placeholder="Precio" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stock" class="col-sm-2 control-label">Stock:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="stock"
+                                   ng-model="item.stock" placeholder="Stock" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type" class="col-sm-2 control-label">Tipo:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="type"
+                                   ng-model="item.type" placeholder="Tipo" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image" class="col-sm-2 control-label">Imagen:</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" id="image"
+                                   ng-model="item.image" placeholder="Imagen" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <!--<a ng-if="editing" ng-click="editPharmacy()" href="" class="btn btn-small btn-primary" ng-disabled="pharmacyForm.$invalid">Editar</a>-->
+                            <button type="submit" class="btn btn-small btn-primary"
+                                    ng-disabled="itemCatalogForm.$invalid">Agregar
+                            </button>
+                            <!--<a ng-if="!editing" ng-click="addPharmacy()" href="" class="btn btn-small btn-primary">Agregar</a>-->
+                            <a href="#/catalog" class="btn btn-small btn-secondary">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
